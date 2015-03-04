@@ -11,16 +11,14 @@ use Cake\View\Helper\SessionHelper;
 <p><?php echo $post->body; ?></p>
 <p><small><?php echo $post->created->format('d M Y'); ?></small></p>
 
+<?php echo $this->element('comments'); ?>
 
-<h3>Comments:</h3>
-<?php foreach ($comments as $comment) : ?>
-	<p><?php echo $comment->body; ?></p>		
-<?php endforeach; ?>
+<?php //echo $this->element('CommentManager.comment',['ccomment' => $ccomment]); ?>
 
-
-<?php echo $this->element('CommentManager.comment',['ccomment' => $ccomment]); ?>
-
-
+<?php
+	$comment = $this->cell('CommentManager.Comment::display', ['id' => $this->request->params['pass'][0]]); 
+	echo $comment;
+?>
 <?php
 	// echo $this->Form->create($ccomment, ['url' => ['plugin' => 'CommentManager', 'controller' => 'Comments', 'action' => 'add', $post->id]]);
 	// echo $this->Form->input('body', ['type' => 'textarea', 'rows' => '5', 'cols' => '5', 'class' => 'comment-field']);

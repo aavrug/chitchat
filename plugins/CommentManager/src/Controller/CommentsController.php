@@ -28,15 +28,10 @@ class CommentsController extends AppController {
         $this->set('comment', $comment);
     }
 
-
-
-    // public function index() {
-    //     $comments = $this->Comments->find('all');
-    //     $this->set(compact('comments'));
-    // }
-
-	public function add()
+	public function add($id = null)
     {
+        $comments = $this->Comments->findByPostId($id);
+
         $ccomment = $this->Comments->newEntity($this->request->data);
         if ($this->request->is('post')) {
             $userId = null;
@@ -47,15 +42,16 @@ class CommentsController extends AppController {
             $ccomment = $this->Comments->patchEntity($ccomment, $newData);
             if ($this->Comments->save($ccomment)) {
                 $this->Flash->success('The comment has been saved.');
-                return $this->redirect($_SERVER['HTTP_REFERER']);
+                // return $this->redirect($_SERVER['HTTP_REFERER']);
+                return $this->redirect(['Controller' => 'Posts', 'action' => 'view', $this->request->params['pass'][0]]);
             } else {
                 $this->Flash->error('The comment could not be saved. Please, try again.');
                 $session = $this->request->session();
                 $session->write('ccomment', $ccomment);
             }
         }
-        // $this->set(compact('comment'));        
-        return $this->redirect($_SERVER['HTTP_REFERER']);
+        $this->set(compact('ccomment', 'comments'));        
+        // return $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
 }

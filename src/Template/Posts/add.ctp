@@ -13,3 +13,6 @@
 	echo $this->Form->button('Save');
 	echo $this->Form->end();
 ?>
+<script type="text/javascript">
+	CKEDITOR.replace( 'body' );
+</script>

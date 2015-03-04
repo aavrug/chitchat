@@ -72,7 +72,7 @@ class SlugBehavior extends Behavior {
         $config = $this->config();
         
         if (!isset($entity->{$config['title_field']}) && !isset($entity->{$config['slug_field']})) {
-			//throw new Exception(__('Sorry, seems the passed field name doesn\'t exist.'));
+			throw new Exception(__('Sorry, seems the passed field name doesn\'t exist.'));
 		}
          
         $entity->set($config['slug_field'], $this->_createSlug($config, $entity->get($config['title_field'])));

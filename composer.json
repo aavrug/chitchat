@@ -28,7 +28,7 @@
         "psr-4": {
             "App\\": "src",
             "CommentManager\\": "./plugins/CommentManager/src",
-            "CommentManager\\Test\\": "./plugins/CommentManager/tests"
+            "CommentManager\\Test\\": "./plugins/CommentManager/tests"      
         }
     },
     "autoload-dev": {

@@ -183,6 +183,8 @@ Plugin::load('Migrations');
 
 Plugin::load('CommentManager', ['routes' => true]);
 
+
+
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {

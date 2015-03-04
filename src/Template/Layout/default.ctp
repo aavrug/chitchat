@@ -55,5 +55,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <footer>
         </footer>
     </div>
+    <?php $js = "ckeditor/ckeditor.js"; ?>
+    <?php echo $this->Html->script($js); ?>
 </body>
 </html>

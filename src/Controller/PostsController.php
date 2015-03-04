@@ -91,7 +91,7 @@ class PostsController extends AppController {
 		$post = $this->Posts->get($id);
 		$session = $this->request->session();
 		// $ccomment = $session->consume('ccomment');
-		$ccomment = new CommentForm();
+		// $ccomment = new CommentForm();
 
 		if ($this->request->is('post')) {
 
@@ -104,15 +104,15 @@ class PostsController extends AppController {
 			
 			$data['post_id'] = $this->request->params['pass'][0];
 
-			if ( $ccomment->execute($data))
-			{
-				$this->Flash->success('Success');
+			// if ( $ccomment->execute($data))
+			// {
+			// 	$this->Flash->success('Success');
 
-				return $this->redirect(['action' => 'view', $id]); 
+			// 	return $this->redirect(['action' => 'view', $id]); 
 				
-			} else {
-				$this->Flash->error('Error!');
-			}
+			// } else {
+			// 	$this->Flash->error('Error!');
+			// }
 		}
 
 		// $ccomment = $this->loadModel('Comments.Comments');
